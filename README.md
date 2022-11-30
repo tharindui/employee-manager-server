@@ -8,3 +8,5 @@ nmp init
 
 npm start
 ```
+
+server will run on port 9999  [http://localhost:9999/](http://localhost:9999/)
