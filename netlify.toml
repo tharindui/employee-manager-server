@@ -3,7 +3,7 @@
   functions = "functions"
 
 [[redirects]]
-  from = "/employee"
-  to = "/employee"
+  from = "/*"
+  to = "/index.html"
   status = 200
   force = false
