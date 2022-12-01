@@ -17,8 +17,12 @@ app.get("/", (req, res) => {
   res.send("we are on home");
 });
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
-  console.log("db connected ........");
-});
+mongoose.connect(
+  "CTION=mongodb+srv://tharinduI:1122Tharidu@employeecluster.mt38mgw.mongodb.net/employee?retryWrites=true&w=majority",
+  { useNewUrlParser: true },
+  () => {
+    console.log("db connected ........");
+  }
+);
 
 app.listen(9999);
