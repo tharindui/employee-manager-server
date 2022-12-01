@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+
+const serverless = require("serverless-http");
 require("dotenv/config");
 
 app.use(bodyParser.json());
@@ -21,4 +23,5 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("db connected ........");
 });
 
-app.listen(9999);
+module.exports.handle = serverless(app);
+//app.listen(9999);
