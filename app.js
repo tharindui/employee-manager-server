@@ -23,5 +23,5 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("db connected ........");
 });
 
-module.exports.handle = serverless(app);
-//app.listen(9999);
+module.exports.handler = serverless(app);
+app.listen(9999);
