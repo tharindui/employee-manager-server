@@ -15,8 +15,8 @@ const employeeRoutes = require("./routes/employee");
 //middleware
 app.use("/employee", employeeRoutes);
 app.use(bodyParser.json());
-//app.use("/.netlify/functions/server", router); // path must route to lambda
-//app.use("/", (req, res) => res.sendFile(path.join(__dirname, "../index.html")));
+app.use("/.netlify/functions/server", router); // path must route to lambda
+app.use("/", (req, res) => res.sendFile(path.join(__dirname, "../index.html")));
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("db connected ........");
 });
