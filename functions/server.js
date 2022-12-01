@@ -14,15 +14,9 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-const employeeRoutes = require("./routes/employee");
+const employeeRoutes = require("../express/routes/employee");
 
 //middleware
-app.use("/.netlify/functions/server", employeeRoutes);
+app.use("/employee", employeeRoutes);
 
-//module.exports = app;
-const handler = serverless(app);
-//module.exports.handler = serverless(app);
-module.exports.handler = async (event, context) => {
-  const result = await handler(event, context);
-  return result;
-};
+module.exports.handler = serverless(app);
