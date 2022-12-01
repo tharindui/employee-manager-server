@@ -18,5 +18,5 @@ const employeeRoutes = require("./routes/employee");
 
 //middleware
 app.use("/employee", employeeRoutes);
-
+module.exports = app;
 module.exports.handler = serverless(app);
