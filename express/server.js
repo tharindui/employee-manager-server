@@ -5,9 +5,11 @@ const cors = require("cors");
 require("dotenv/config");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
-app.use(cors());
-
-app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 mongoose.connect(
   "mongodb+srv://tharinduI:1122Tharidu@employeecluster.mt38mgw.mongodb.net/employee?retryWrites=true&w=majority",
