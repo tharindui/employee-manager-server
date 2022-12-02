@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://employee-manger-aab8b8.netlify.app",
   })
 );
 
