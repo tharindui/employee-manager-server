@@ -5,12 +5,14 @@ const cors = require("cors");
 require("dotenv/config");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
+
+app.options("*", cors()); // include before other routes
+
 app.use(
   cors({
-    origin: "https://employee-manger-aab8b8.netlify.app",
+    origin: "*",
   })
 );
-
 mongoose.connect(
   "mongodb+srv://tharinduI:1122Tharidu@employeecluster.mt38mgw.mongodb.net/employee?retryWrites=true&w=majority",
   { useNewUrlParser: true }
