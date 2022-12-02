@@ -14,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-const employeeRoutes = require("./routes/employee");
+const employeeRoutes = require("../express/routes/employee");
 
 //middleware
 app.use("/employee", employeeRoutes);
