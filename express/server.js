@@ -1,6 +1,5 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const serverless = require("serverless-http");
 const app = express();
 const cors = require("cors");
 require("dotenv/config");
@@ -10,26 +9,18 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+mongoose.connect(
+  "mongodb+srv://tharinduI:1122Tharidu@employeecluster.mt38mgw.mongodb.net/employee?retryWrites=true&w=majority",
+  { useNewUrlParser: true }
+);
+
 app.get("/", async (request, response) => {
   console.log("hey");
-  response.send({ hello: "world" });
+  response.send({ hello: "employee manager server" });
 });
 
 const employeeRoutes = require("./routes/employee");
 
 //middleware
-app.use("/.netlify/functions/server", employeeRoutes);
+app.use("/", employeeRoutes);
 module.exports = app;
-//module.exports.handler = serverless(app);
-const handler = serverless(app);
-module.exports.handler = async (event, context) => {
-  // mongoose.connect(process.env.DATABASE_URL);
-  mongoose.connect(
-    "mongodb+srv://tharinduI:1122Tharidu@employeecluster.mt38mgw.mongodb.net/employee?retryWrites=true&w=majority",
-    { useNewUrlParser: true }
-  );
-  // you can do other things here
-  const result = await handler(event, context);
-  // and here
-  return result;
-};
