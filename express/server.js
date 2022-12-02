@@ -14,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.get("/employee", async (request, response) => {
+app.get("/", async (request, response) => {
   console.log("hey");
   response.send({ hello: "employee manager server" });
 });
@@ -22,5 +22,5 @@ app.get("/employee", async (request, response) => {
 const employeeRoutes = require("./routes/employee");
 
 //middleware
-app.use("/", employeeRoutes);
+app.use("/employee", employeeRoutes);
 module.exports = app;
