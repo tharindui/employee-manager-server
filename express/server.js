@@ -14,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-app.get("/", async (request, response) => {
+app.get("/employee", async (request, response) => {
   console.log("hey");
   response.send({ hello: "employee manager server" });
 });
