@@ -5,7 +5,6 @@ const Employee = require("../models/employee");
 //GET ALL EMPLOYEES
 router.get("/", async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "true");
     const employees = await Employee.find();
     res.json(employees);
   } catch (err) {
@@ -16,7 +15,6 @@ router.get("/", async (req, res) => {
 //GET EMPLOYEE BY ID
 router.get("/:empId", async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "true");
     const employee = await Employee.findById(req.params.empId);
     res.json(employee);
   } catch (err) {
@@ -27,7 +25,6 @@ router.get("/:empId", async (req, res) => {
 //REMOVE EMPLOYEE
 router.delete("/:empId", async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "true");
     const removedEmployee = await Employee.remove({
       _id: req.params.empId,
     });
@@ -40,7 +37,6 @@ router.delete("/:empId", async (req, res) => {
 //UPDATE EMPLOYEE
 router.patch("/:empId", async (req, res) => {
   try {
-    res.header("Access-Control-Allow-Origin", "true");
     const updatedEmployee = await Employee.updateOne(
       {
         _id: req.params.empId,
