@@ -11,6 +11,6 @@ run the server
 
 npm start
 
-application will start with [http://localhost:9999/](http://localhost:9999/)
+application will start with http://localhost:9999/
 
 ```
